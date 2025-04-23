@@ -215,7 +215,7 @@ const LmsQuestion = ({ questions, student_ids, topicsId, selectyear }) => {
                                 className="common-btn left"
                                 href="#"
                                 onClick={(e) => createExam(e, 1)}
-                                disabled={loader}
+                                disabled={selectedItems?.length === 0}
                                 style={{ float: "left", marginTop: "80px" }}
                             >
                                 Create Exam{" "}

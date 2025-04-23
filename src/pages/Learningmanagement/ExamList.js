@@ -122,24 +122,6 @@ const ExamList = () => {
                             </div>
                         ) : (
                             <>
-                                {/* <div className="report-menu">
-                <div className="category free-testing-tabs">
-                  <ul>
-                    <li>
-                      <p>{report.userReport?.length}</p>
-                      Tests taken
-                    </li>
-                    <li>
-                      <p>{report.totalQues}</p>
-                      Questions seen
-                    </li>
-                    <li>
-                      <p>{report.totalTime}</p>
-                      Time spent
-                    </li>
-                  </ul>
-                </div>
-              </div> */}
                                 <div className="col-md-12">
                                     <div className="row savedTest" >
                                         <h4>Exam List</h4>
@@ -174,7 +156,7 @@ const ExamList = () => {
                                             </thead>
                                             <tbody>
                                                 {currentPosts.length ? (
-                                                    currentPosts.map((item, index) => (
+                                                    currentPosts?.reverse().map((item, index) => (
                                                         <tr key={index}>
                                                             <td scope="row">
                                                                 <input

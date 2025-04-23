@@ -1079,10 +1079,10 @@ const Question = ({ questions }) => {
                         <span>Test Details</span>
 
                         <div className={`cal-btn ${isDarkMode ? 'cal-btn cat_btn_light' : 'cal-btn cat_btn_dark'}`} style={{ marginBottom: "10px" }}>
-                            <a href="#" onClick={handleCancelTest}>
+                            <a href="#" onClick={handleCancelTest} style={{whiteSpace: "nowrap"}}>
                                 Cancel Test
                             </a>
-                            <a href="#" onClick={handleFinishTest}>
+                            <a href="#" onClick={handleFinishTest} style={{whiteSpace: "nowrap"}}>
                                 Finish Test
                             </a>
                         </div>
@@ -1094,6 +1094,7 @@ const Question = ({ questions }) => {
                                         e.preventDefault();
                                         setSaveWarning(true);
                                     }}
+                                    style={{whiteSpace: "nowrap"}}
                                 >
                                     Save test
                                 </a>
