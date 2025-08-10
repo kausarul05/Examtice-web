@@ -514,7 +514,7 @@ const handleTypeChange = (e) => {
                                                     MCQ
                                                     <input
                                                         type="radio"
-                                                        checked={testData.type == 1}
+                                                        checked={testData.type === 1}
                                                         name="type"
                                                         value={1}
                                                         onChange={handleChange}
@@ -538,7 +538,7 @@ const handleTypeChange = (e) => {
                                                     Theory Questions
                                                     <input
                                                         type="radio"
-                                                        checked={testData.type == 2}
+                                                        checked={testData.type === 2}
                                                         name="type"
                                                         value={2}
                                                         onChange={handleChange}
@@ -562,7 +562,7 @@ const handleTypeChange = (e) => {
                                                     Practical Questions
                                                     <input
                                                         type="radio"
-                                                        checked={testData.type == 3}
+                                                        checked={testData.type === 3}
                                                         name="type"
                                                         value={3}
                                                         onChange={handleChange}
@@ -579,19 +579,7 @@ const handleTypeChange = (e) => {
 
                         </div>
                         {loader && <Spinner />}
-
-                        {/* <div className="select-testing">
-                            <div className="select-class">
-                                <p>Select Year</p>
-                                <Select
-                                    name="year"
-                                    isMulti
-                                    onChange={handleYear}
-                                    options={subjectyears}
-                                    className="year_color"
-                                />
-                            </div>
-                        </div> */}
+                        
                         <div className="select-testing">
                             <div className="select-class">
                                 <p>Select Year</p>

@@ -147,7 +147,7 @@ const MyProfile = () => {
       setResetGrapth(true)
     } catch (error) {
       setLoader(false)
-      console.log(error)
+      // console.log(error)
     }
   }
 
@@ -163,7 +163,7 @@ const MyProfile = () => {
       } = await axios.post(GET_RESET_GRAPH, body, config2)
       //console.log(status)
       if (status == 200) {
-        console.log('test')
+        // console.log('test')
         setLoader(false)
         setResetGrapth(false)
         window.location.reload()

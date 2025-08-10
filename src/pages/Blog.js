@@ -85,7 +85,7 @@ const Blog = () => {
     window.location.reload()
   }
 
-  console.log(currentPosts)
+  // console.log(currentPosts)
 
   const { isDarkMode } = useContext(ThemeContext)
 

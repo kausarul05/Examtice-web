@@ -61,15 +61,7 @@ const Eshop = (props) => {
 
     return (
         <>
-            {/* <DarkAndLightMode></DarkAndLightMode> */}
             <Header />
-
-            {/* <section className="inner-banner">
-        <img src="assets/images/eshop-banner.jpg" alt="" />
-        <div className="inner-banner-overlay">
-          <h2>E-Shop</h2>
-        </div>
-      </section> */}
             <section className="become-affilated eshop">
                 <div className="container">
                     <h2 className="page-heading">E-Shop</h2>
@@ -78,79 +70,6 @@ const Eshop = (props) => {
                             <Spinner />
                         </div>
                     ) : (
-                        // <div className="row books-collection">
-                        //     {courses.length > 0 ? (
-                        //         courses.map((item, i) => (
-                        //             <div className="col-md-6 mobileeshop-view" key={i}>
-                        //                 <div className="e-book-inner">
-                        //                     <img
-                        //                         src={
-                        //                             `${global.API_HOST}assets/images/courses/` +
-                        //                             item.image
-                        //                         }
-                        //                         alt=""
-                        //                         style={{ width: "80%" }}
-                        //                     />
-                        //                     <div>
-                        //                         <h4>{item.name} </h4>
-                        //                         <p>{item.description}</p>
-                        //                         <span>₦ {item.price_ngn}</span>
-                        //                         <Link
-                        //                             className="nav-link"
-                        //                             to={`/user/buy-package/${item.id}`}
-                        //                         >
-                        //                             Buy now
-                        //                         </Link>
-                        //                     </div>
-                        //                 </div>
-                        //             </div>
-                        //         ))
-                        //     ) : (
-                        //         <p>No courses found..!</p>
-                        //     )}
-
-                        //     {courses.length > 0 ? (
-                        //         courses.map((item, i) => (
-                        //             <div className="col-md-4 desktopeshop-view mb-4" key={i}>
-                        //                 <div className={`e-book-inner-desktop ${isDarkMode ? 'e-book-inner-desktop-dark' : 'e-book-inner-desktop-light'}`}>
-                        //                     <div className="col-md-12 eshop_item_img">
-                        //                         <img
-                        //                             src={
-                        //                                 `${global.API_HOST}assets/images/courses/` +
-                        //                                 item.image
-                        //                             }
-                        //                             alt=""
-                        //                         />
-                        //                     </div>
-                        //                     <div className="col-md-12 item_info">
-
-                        //                         <div className="">
-                        //                             <div className="d-block mb-3">
-                        //                                 <b>{item.name} </b>
-                        //                             </div>
-                        //                             <div className="d-block mb-5">
-                        //                                 <i>{item.description}</i>
-                        //                             </div>
-                        //                             <div className="d-block mb-3">
-                        //                                 &nbsp;
-                        //                                 <span>₦ {item.price_ngn}</span>
-                        //                                 <Link
-                        //                                     className="nav-link"
-                        //                                     to={`/user/buy-package/${item.id}`}
-                        //                                 >
-                        //                                     Buy now
-                        //                                 </Link>
-                        //                             </div>
-                        //                         </div>
-
-                        //                     </div>
-                        //                 </div>
-                        //             </div>
-                        //         ))
-                        //     ) : (
-                        //         <p>No courses found..!</p>
-                        //     )}
-                        // </div>
 
                         <div className="row books-collection">
                             {courses.length > 0 ? (
