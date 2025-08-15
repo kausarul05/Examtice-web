@@ -124,14 +124,51 @@ const Freetest = () => {
     };
 
     const handleChange = (e) => {
-        setTestData({ ...testData, [e.target.name]: e.target.value });
+        setTestData({
+            ...testData,
+            [e.target.name]: e.target.name === "type" ? Number(e.target.value) : e.target.value
+        });
     };
 
 
 
-    console.log(testData)
+
+    // console.log("testData", testData)
 
     //Get subject based on course change
+    // const handleCourseChange = async (e) => {
+    //     var id = e.target.value;
+    //     var userId =
+    //         Cookies.get("user_data") && JSON.parse(Cookies.get("user_data"));
+    //     if (!isNaN(id)) {
+    //         setLoader(true);
+    //         setTestData({
+    //             ...testData,
+    //             courseName: e.target.options[e.target.selectedIndex].text,
+    //             courseId: id,
+    //         });
+    //         const body = {
+    //             courseId: id,
+    //             user_id: !!userId && userId.id,
+    //         };
+    //         try {
+    //             const {
+    //                 data: { data, status, mcq, theory, practical, usersubscription, error },
+    //             } = await axios.post(GET_SUBJECTS, body);
+    //             if (status == 200) {
+    //                 setLoader(false);
+    //                 setSubjects(data);
+    //                 setMcq(mcq);
+    //                 setTheory(theory);
+    //                 setPractical(practical);
+    //                 setUserSubscription(usersubscription);
+    //             }
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     }
+    // };
+
     const handleCourseChange = async (e) => {
         var id = e.target.value;
         var userId =
@@ -149,7 +186,7 @@ const Freetest = () => {
             };
             try {
                 const {
-                    data: { data, status, mcq, theory, practical, usersubscription, error },
+                    data: { data, status, mcq, theory, practical, usersubscription },
                 } = await axios.post(GET_SUBJECTS, body);
                 if (status == 200) {
                     setLoader(false);
@@ -158,6 +195,14 @@ const Freetest = () => {
                     setTheory(theory);
                     setPractical(practical);
                     setUserSubscription(usersubscription);
+
+                    // ✅ Auto select theory if mcq is not available
+                    if (mcq !== 1 && theory === 1) {
+                        setTestData(prev => ({
+                            ...prev,
+                            type: 2 // number for theory
+                        }));
+                    }
                 }
             } catch (err) {
                 console.log(err);
@@ -197,7 +242,7 @@ const Freetest = () => {
         const target = e.target;
         const id = target.value;
         const userId = Cookies.get("user_data") && JSON.parse(Cookies.get("user_data"));
-        
+
         // Update the subject and possibly the type here
         if (!isNaN(id)) {
             setTestData((prevState) => ({
@@ -206,14 +251,14 @@ const Freetest = () => {
                 subject_id: id,
             }));
         }
-        
+
         const body = {
             courseId: parseInt(testData.courseId),
             subjectId: id,
             user_id: !!userId && userId.id,
             type: testData.type, // Ensure this is correct in the current state
         };
-    
+
         try {
             const {
                 data: { data, status, error },
@@ -225,15 +270,15 @@ const Freetest = () => {
             console.log(err);
         }
     };
-// Example to handle type change
-const handleTypeChange = (e) => {
-    const newType = e.target.value;
-    setTestData((prevState) => ({
-        ...prevState,
-        type: newType, // Update the type here
-    }));
-};
-    console.log(testData.type)
+    // Example to handle type change
+    const handleTypeChange = (e) => {
+        const newType = e.target.value;
+        setTestData((prevState) => ({
+            ...prevState,
+            type: newType, // Update the type here
+        }));
+    };
+    // console.log(testData.type)
 
     //On click edit button rest state
     const handleEditTest = (e) => {
@@ -486,7 +531,7 @@ const handleTypeChange = (e) => {
 
                             <div className="exam-test">
                                 {loader && <Spinner />}
-                                <a href="#" className="common-btn"  onClick={handleNextStep}>
+                                <a href="#" className="common-btn" onClick={handleNextStep}>
                                     Next
                                 </a>
                             </div>
@@ -514,7 +559,7 @@ const handleTypeChange = (e) => {
                                                     MCQ
                                                     <input
                                                         type="radio"
-                                                        checked={testData.type === 1}
+                                                        checked={testData.type == 1}
                                                         name="type"
                                                         value={1}
                                                         onChange={handleChange}
@@ -538,7 +583,7 @@ const handleTypeChange = (e) => {
                                                     Theory Questions
                                                     <input
                                                         type="radio"
-                                                        checked={testData.type === 2}
+                                                        checked={testData.type == 2}
                                                         name="type"
                                                         value={2}
                                                         onChange={handleChange}
@@ -562,7 +607,7 @@ const handleTypeChange = (e) => {
                                                     Practical Questions
                                                     <input
                                                         type="radio"
-                                                        checked={testData.type === 3}
+                                                        checked={testData.type == 3}
                                                         name="type"
                                                         value={3}
                                                         onChange={handleChange}
@@ -579,7 +624,7 @@ const handleTypeChange = (e) => {
 
                         </div>
                         {loader && <Spinner />}
-                        
+
                         <div className="select-testing">
                             <div className="select-class">
                                 <p>Select Year</p>

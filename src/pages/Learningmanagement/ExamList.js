@@ -65,7 +65,7 @@ const ExamList = () => {
     //get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage
-    const currentPosts = examlist.slice(indexOfFirstPost, indexOfLastPost)
+    const currentPosts = examlist.reverse().slice(indexOfFirstPost, indexOfLastPost)
 
     //change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -156,7 +156,7 @@ const ExamList = () => {
                                             </thead>
                                             <tbody>
                                                 {currentPosts.length ? (
-                                                    currentPosts?.reverse().map((item, index) => (
+                                                    currentPosts?.map((item, index) => (
                                                         <tr key={index}>
                                                             <td scope="row">
                                                                 <input
