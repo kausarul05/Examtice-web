@@ -19,7 +19,7 @@ const Footer = () => {
         <>
         <GlobalStyles theme={theme} />
             <WhatsAppWidget
-                phoneNo="+234-815555-7307"
+                phoneNo="+2348127000020"
                 position="right"
                 widgetWidth="300px"
                 widgetWidthMobile="60px"

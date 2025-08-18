@@ -65,7 +65,8 @@ const ExamList = () => {
     //get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage
-    const currentPosts = examlist.reverse().slice(indexOfFirstPost, indexOfLastPost)
+    // const currentPosts = examlist.reverse().slice(indexOfFirstPost, indexOfLastPost)
+    const currentPosts = [...examlist].reverse().slice(indexOfFirstPost, indexOfLastPost);
 
     //change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
