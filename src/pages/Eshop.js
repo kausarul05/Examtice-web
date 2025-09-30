@@ -128,7 +128,6 @@ const Eshop = (props) => {
                                                 />
                                             </div>
                                             <div className="col-md-8 item_info">
-
                                                 <div className="eshop-item-des ml-3">
                                                     <div className="d-block mb-3">
                                                         <b>{item.name} </b>
@@ -147,7 +146,6 @@ const Eshop = (props) => {
                                                         </Link>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
